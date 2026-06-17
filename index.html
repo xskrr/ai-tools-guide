@@ -847,7 +847,6 @@
       <ul class="nav-links">
         <li><a onclick="showPage('home')" class="active">首页</a></li>
         <li><a onclick="showPage('workbuddy')">WorkBuddy 下载</a></li>
-        <li><a onclick="showPage('lobster-env')">龙虾·环境</a></li>
         <li><a onclick="showPage('ai-tools')">AI 工具速览</a></li>
         <li><a onclick="showPage('weekly')">周报生成器 Skill</a></li>
         <li><a onclick="showPage('lobster-id')">龙虾·身份</a></li>
@@ -865,10 +864,6 @@
       <div class="card" onclick="showPage('workbuddy')"><span class="card-icon">💻</span>
         <h3>WorkBuddy 下载</h3>
         <p>5 步完成安装，三种模式（Ask / Plan / Craft）详解。</p>
-      </div>
-      <div class="card" onclick="showPage('lobster-env')"><span class="card-icon">⚙️</span>
-        <h3>龙虾·环境配置</h3>
-        <p>Node.js、Python 全局开发环境一键配置。</p>
       </div>
       <div class="card" onclick="showPage('ai-tools')"><span class="card-icon">🧰</span>
         <h3>AI 工具速览</h3>
@@ -895,7 +890,6 @@
         <li><strong>认识主流 AI 工具</strong> — 7 款工具的特点、价格、适用场景，帮你选对不选贵</li>
         <li><strong>理解 AI 工作模式</strong> — 快速对话、深度思考、规划模式、工具调用，知道什么时候用什么</li>
         <li><strong>让 AI 认识你</strong> — 用龙虾的身份设置，建立 AI 对你的完整认知</li>
-        <li><strong>配好你的电脑</strong> — 用龙虾一键配置 Node.js、Python 开发环境</li>
         <li><strong>跑通一个自动化</strong> — 用周报生成器 Skill，体验 AI 自动化任务流程</li>
       </ol>
     </div>
@@ -1195,156 +1189,6 @@
     </div>
   </div>
 
-  <!-- ====== 龙虾·环境 ====== -->
-  <div class="main page-section" id="page-lobster-env">
-    <div class="breadcrumb"><a onclick="showPage('home')">首页</a><span class="sep">/</span>龙虾·环境</div>
-    <div class="page-header">
-      <h1>龙虾新手指南 · 全局开发环境配置</h1>
-      <p class="subtitle">第一次用龙虾？让它把你的电脑配置好。下面的提示词会一键配置 Node.js、Python 等开发环境。</p>
-    </div>
-    <div class="highlight-box info"><strong>使用方式：</strong>直接复制「提示词正文」，发给龙虾，它会自动完成所有配置。</div>
-    <div class="section">
-      <h2>提示词正文</h2>
-      <p style="color:var(--text-secondary);margin-bottom:12px">直接复制整段发给龙虾即可。</p>
-      <div class="code-block">请帮我完成这台电脑的全局开发环境配置。我是第一次使用，请按以下步骤操作：
-
-        ---
-
-        ## 1. Node.js 环境（NVM 方式管理，推荐）
-
-        ### 1.1 检查 NVM
-        - 检查本机是否已安装 NVM（Node Version Manager）
-        - Windows：检查 C:\nvm4w 或 C:\Users\&lt;用户名&gt;\AppData\Roaming\nvm 是否存在
-        - Mac/Linux：执行 nvm --version
-        - 如果未安装：
-        - Windows：引导我去下载最新版安装包
-        - Mac/Linux：用 curl 安装 nvm
-
-        ### 1.2 安装 Node.js
-        - 安装 Node.js 22 LTS（当前推荐稳定版）
-        - 安装 Node.js 24（最新版，尝鲜用）
-        - 将 Node.js 22 设为默认版本
-
-        ### 1.3 安装常用全局包
-        对默认版本安装：
-        - pnpm（快速包管理器）
-        - typescript + tsx（TypeScript 编译与执行）
-        - npm-check-updates（依赖更新工具）
-
-        ### 1.4 可选：配置国内镜像加速
-        npm config set registry https://registry.npmmirror.com
-
-        ---
-
-        ## 2. Python 环境
-
-        ### 2.1 检测本机 Python
-        - 检查哪些 Python 版本已安装
-        - 重要警告：Windows 用户如果安装了 Microsoft Store 版 Python（路径含 WindowsApps），该版本会导致静默失败，严禁使用
-        - 优先使用非 Store 版的 Python
-
-        ### 2.2 选择或安装 Python 版本
-        - 推荐 Python 3.12 或 3.13
-        - 如果本机没有合适的版本，告诉我需要安装
-
-        ### 2.3 创建虚拟环境（隔离项目依赖）
-        - Windows：%USERPROFILE%\.venv\default
-        - Mac/Linux：~/.venv/default
-
-        ### 2.4 安装常用包
-        - requests（HTTP 请求）
-        - pandas + openpyxl（数据处理与 Excel）
-        - python-docx（Word 文档）
-        - python-pptx（PPT 生成）
-        - matplotlib + numpy（可视化与科学计算）
-        - beautifulsoup4 + lxml（网页解析）
-        - Pillow（图像处理）
-
-        ---
-
-
-
-        ## 3. 路径与环境变量检查
-
-        - 确认 Node.js（含 npm/pnpm）在系统 PATH 中
-        - 确认 Python 在系统 PATH 中
-        - 如果发现冲突，报告并建议修复
-
-        ---
-
-        ## 4. 输出配置报告
-
-        完成以上步骤后，请输出一份配置报告，格式如下：
-
-        | # | 检查项 | 状态 | 详情 |
-        |---|--------|------|------|
-        | 1 | NVM | ✅/❌ | 版本号 |
-        | 2 | Node.js 默认版本 | ✅/❌ | 版本号 |
-        | 3 | npm | ✅/❌ | 版本号 |
-        | 4 | pnpm | ✅/❌ | 版本号 |
-        | 5 | TypeScript (tsx) | ✅/❌ | 版本号 |
-        | 6 | Python | ✅/❌ | 版本号 + 路径 |
-        | 7 | Python 虚拟环境 | ✅/❌ | 路径 |
-
-        ---
-
-        ## 执行原则
-
-        1. 先诊断再修复：每步先检查现有状态，只在缺失或异常时才修改
-        2. 遇到错误要报告：不要静默跳过，告诉我具体是什么错了
-        3. 安装耗时长的包：用后台模式执行，避免超时
-        4. 最终必须输出报告：用上面的表格格式展示所有结果
-        5. 将本次配置的关键发现写入 ~/.workbuddy/MEMORY.md
-
-        ---
-
-        开始吧。</div>
-    </div>
-    <div class="section">
-      <h2>配置完成后你会得到什么</h2>
-      <div class="table-wrap">
-        <table>
-          <tr>
-            <th>环境</th>
-            <th>效果</th>
-          </tr>
-          <tr>
-            <td><strong>Node.js</strong></td>
-            <td>多个版本可切换，pnpm/typescript 全局可用</td>
-          </tr>
-          <tr>
-            <td><strong>Python</strong></td>
-            <td>干净隔离的虚拟环境，常用包已安装</td>
-          </tr>
-          
-          <tr>
-            <td><strong>路径</strong></td>
-            <td>没有冲突，命令行工具随处可用</td>
-          </tr>
-        </table>
-      </div>
-    </div>
-    <div class="section">
-      <h2>常见问题</h2>
-      <div class="mode-card">
-        <div class="mode-title">Q: 我已经装过 Node/Python 了，会不会冲突？</div>
-        <p>不会。龙虾会先诊断现有环境，只修复问题，不重复安装。</p>
-      </div>
-      <div class="mode-card">
-        <div class="mode-title">Q: 我是 Mac，能用吗？</div>
-        <p>能用。提示词中已区分 Windows 和 Mac/Linux 的处理逻辑。</p>
-      </div>
-      <div class="mode-card">
-        <div class="mode-title">Q: 配置完后要重启电脑吗？</div>
-        <p>通常不需要。最多重启一下终端让 PATH 生效。</p>
-      </div>
-      <div class="mode-card">
-        <div class="mode-title">Q: 以后换电脑了能复用吗？</div>
-        <p>直接复制这段提示词到新电脑上用就行。</p>
-      </div>
-    </div>
-  </div>
-
   <script>
     function showPage(id) {
       document.querySelectorAll('.page-section').forEach(function (s) { s.classList.remove('active') });
@@ -1352,7 +1196,7 @@
       if (page) page.classList.add('active');
       document.querySelectorAll('.nav-links a').forEach(function (a) { a.classList.remove('active') });
       var links = document.querySelectorAll('.nav-links a');
-      var map = { home: 0, workbuddy: 1, 'lobster-env': 2, 'ai-tools': 3, weekly: 4, 'lobster-id': 5 };
+      var map = { home: 0, workbuddy: 1, 'ai-tools': 2, weekly: 3, 'lobster-id': 4 };
       if (map[id] !== undefined) links[map[id]].classList.add('active');
       window.scrollTo(0, 0);
       document.querySelector('.nav-links').classList.remove('open');
