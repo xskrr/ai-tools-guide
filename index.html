@@ -70,7 +70,8 @@
       padding: 0 28px;
       display: flex;
       align-items: center;
-      justify-content: space-between
+      justify-content: center;
+      position: relative
     }
 
     .nav-logo {
@@ -87,7 +88,8 @@
       background: none;
       white-space: nowrap;
       flex-shrink: 0;
-      margin-right: 32px
+      position: absolute;
+      left: 28px
     }
 
     .nav-logo .icon {
@@ -101,16 +103,17 @@
 
     .nav-links {
       display: flex;
-      gap: 8px;
-      list-style: none
+      gap: 6px;
+      list-style: none;
+      justify-content: center
     }
 
     .nav-links a {
       text-decoration: none;
       color: var(--text-secondary);
-      padding: 8px 12px;
+      padding: 7px 14px;
       border-radius: 8px;
-      font-size: .9rem;
+      font-size: .88rem;
       font-weight: 500;
       transition: all .15s ease;
       white-space: nowrap;
@@ -782,6 +785,14 @@
     }
 
     @media(max-width:768px) {
+      .nav-inner {
+        justify-content: flex-start
+      }
+
+      .nav-logo {
+        position: static
+      }
+
       .nav-links {
         display: none;
         position: absolute;
